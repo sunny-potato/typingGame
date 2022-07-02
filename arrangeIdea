@@ -1,0 +1,33 @@
+- Typing game
+
+1. elements for the game
+
+- random words fall down to the ground
+  - random words \*\*\*
+  - boundary line of failure \*\*\*
+  - display gauge to be done \*\*\*
+  - display points \*\*\*
+  - input to write down \*\*\*
+  - start button \*\*\*
+
+2. start with the game
+
+- when user click start button, the game starts \*\*\*
+  - random words are appeared -> counting time for how many words will be shown per second? \*\*\*
+- user can write down one of the words falling in input \*\*\*
+  - after writing the word, user clicks enter key -> event with enter key \*\*\*
+  - event with enterkey, check if the word is found in the screen -> checking the word exsists \*\*\*
+    - if the word written by the user is correct, the word is disapeared from the window view \*\*\*
+      then user gets the point of the correction & the input will be empty \*\*\*
+    - if the word is not correct, the word remains, then user loses the failure gauge & input will be empty
+- when words meet the bounday line \*\*\*
+  - the gauge will be lost as much as the number of words the user misses out \*\*\*
+
+3. finish the game
+
+- when the gauge will be empty, \*\*\*
+  message including total points pop up
+
+* if all features above are maganged,
+  - different levels depending on time or length of words/sentence
+  - display rank of points

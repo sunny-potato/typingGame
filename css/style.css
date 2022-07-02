@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.playContainer {
+  width: 100%;
+  height: 70%;
+  border: 3px solid lightcoral;
+  background: lightcoral;
+  box-sizing: border-box;
+  margin-bottom: 1%;
+  position: relative;
+}
+.wordContainer {
+}
+.typingContainer {
+  width: 100%;
+  height: 30%;
+  border: 3px solid lightgreen;
+  box-sizing: border-box;
+  display: flex;
+}
+.displayPoints {
+  background-color: aquamarine;
+  flex: 1;
+  padding: 5% 1%;
+}
+.displayInput {
+  background-color: lightblue;
+  flex: 1;
+  padding: 5% 1%;
+}
+.displayGauge {
+  background-color: lightpink;
+  flex: 1;
+  padding: 5% 1%;
+}

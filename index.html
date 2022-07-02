@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing game</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/button.css" />
+  </head>
+  <body>
+    <div class="gameContainer">
+      <div class="playContainer">
+        <div class="noticeGame">
+          <button class="startButton">Start</button>
+        </div>
+        <div class="wordsContainer">
+          <!-- <div
+            style="
+              width: 607.834px;
+              text-align: start;
+              position: absolute;
+              top: 205px;
+            "
+          >
+            STRENGTH
+          </div> -->
+        </div>
+      </div>
+
+      <div class="typingContainer">
+        <div class="displayPoints">
+          Points :
+          <div class="points"></div>
+        </div>
+        <div class="displayInput">
+          <label for="inputText">Enter word</label>
+          <input type="text" class="inputText" name="inputText" />
+        </div>
+        <div class="displayGauge">
+          Gauge :
+          <div class="gauge"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/listOfWords.js" type="module"></script>
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/startEndGame.js" type="module"></script>
+  <script src="./js/playGame.js" type="module"></script>
+  <script src="./js/pointsGauge.js" type="module"></script>
+  <script src="./js/textInput.js" type="module"></script>
+</html>
