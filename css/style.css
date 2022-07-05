@@ -2,8 +2,12 @@
   margin: 0;
   font-size: 18px;
   text-align: center;
+  color: #f5f0e1;
 }
 
+body {
+  background-color: #f5f0e1;
+}
 .gameContainer {
   display: flex;
   flex-direction: column;
@@ -13,33 +17,64 @@
 .playContainer {
   width: 100%;
   height: 70%;
-  border: 3px solid lightcoral;
-  background: lightcoral;
+  /* border: 3px solid lightcoral; */
+  /* background: lightcoral; */
   box-sizing: border-box;
   margin-bottom: 1%;
-  position: relative;
 }
-.wordContainer {
+.wordsContainer {
+  height: 100%;
 }
+.wordsContainer > div {
+  /* border: 3px solid black; */
+  /* background-color: red; */
+  /* border-top-right-radius: 40rem;
+  border-bottom-right-radius: 40rem; */
+  /* padding: 5px; */
+  margin-bottom: 50px;
+  /* width: fit-content; */
+}
+.wordsContainer span {
+  /* background: red; */
+  width: 100%;
+  background-color: #1e3d59;
+  /* margin: 0% 1%;
+  padding: 1%;
+  border-radius: 40rem;
+  border-radius: 40rem; */
+}
+
 .typingContainer {
   width: 100%;
   height: 30%;
-  border: 3px solid lightgreen;
+  /* border: 3px solid lightgreen; */
   box-sizing: border-box;
   display: flex;
 }
 .displayPoints {
-  background-color: aquamarine;
+  background-color: #ff6e40;
+  border-top-right-radius: 40rem;
+  border-bottom-right-radius: 40rem;
   flex: 1;
   padding: 5% 1%;
+  /* color: #1e3d59; */
 }
+/* .displayPoints > .points {
+  background-color: black;
+  width: 50%;
+  height: 50%;
+} */
 .displayInput {
-  background-color: lightblue;
+  background-color: #ffc13b;
+  border-radius: 40rem;
+  border-radius: 40rem;
   flex: 1;
   padding: 5% 1%;
 }
 .displayGauge {
-  background-color: lightpink;
+  background-color: #ff6e40;
+  border-top-left-radius: 40rem;
+  border-bottom-left-radius: 40rem;
   flex: 1;
   padding: 5% 1%;
 }

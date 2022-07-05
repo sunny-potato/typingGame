@@ -1,11 +1,12 @@
 import { wordsList } from "./listOfWords.js";
 import { calcuGauge } from "./pointsGauge.js";
+import { gameOver } from "./startEndGame.js";
 
 const playContainer = document.querySelector(".playContainer");
 const allWordContiner = document.querySelector(".wordsContainer");
 const playArea = playContainer.getBoundingClientRect();
 
-export function playGame() {
+export function playGame(onGameEnd) {
   const getWordandXpos = () => {
     const randomIndex = Math.floor(Math.random() * 1943);
 
@@ -13,7 +14,7 @@ export function playGame() {
     const wordXposition =
       Math.random() * (playArea.width - minLengthWord) + minLengthWord;
 
-    const textAlign = ["start", "end", "center"];
+    const textAlign = ["left", "right", "center"];
     const textAlignIndex = Math.floor(Math.random() * 3);
     const randomtextAlign = textAlign[textAlignIndex];
 
@@ -21,35 +22,41 @@ export function playGame() {
   };
 
   let speedLevel = [2000, 1500, 1000, 500];
-  let delayTime = 200;
-  let intervalTime = 3 * delayTime;
+  let intervalTime = 1000;
+  let delayTime = intervalTime / 20;
 
   const placeWordinXpos = (randomIndex, wordXposition, randomtextAlign) => {
+    const wordSpan = document.createElement("span");
+    wordSpan.textContent = `${wordsList[randomIndex]}`;
+
     const wordFrame = document.createElement("div");
-    wordFrame.textContent = `${wordsList[randomIndex]}`;
+    // wordFrame.textContent = `${wordsList[randomIndex]}`;
     wordFrame.style.width = `${wordXposition}px`;
     wordFrame.style.textAlign = `${randomtextAlign}`;
     wordFrame.style.position = "absolute";
-    // wordFrame.style.background = "red";
+
+    wordFrame.appendChild(wordSpan);
 
     allWordContiner.appendChild(wordFrame);
     const initialYpos = 0;
-    setTimeout(() => {
+    const EachWordSetTimeout = setTimeout(() => {
       wordMoveDown(wordFrame, initialYpos);
     }, delayTime);
+    return EachWordSetTimeout;
   };
+
   const wordMoveDown = (lastWordinContainer, wordYpostion) => {
     const currentWord = lastWordinContainer;
     const currentWordPos = currentWord.getBoundingClientRect();
     // console.log(currentWord.className === "noticeGame");
     if (currentWordPos.bottom >= playArea.bottom) {
       // console.log(currentWord.textContent);
-      if (currentWord.className === "noticeGame") {
-        return; // game done
-      }
-      clearTimeout(currentWord);
+      // clearTimeout(currentWord);
       allWordContiner.removeChild(currentWord);
-      calcuGauge();
+      const gauge = calcuGauge();
+      if (gauge <= 0) {
+        onGameEnd();
+      }
     } else {
       wordYpostion += 5;
       currentWord.style.top = `${wordYpostion}px`;
@@ -59,5 +66,7 @@ export function playGame() {
     }
   };
 
-  setInterval(getWordandXpos, intervalTime);
+  const newWordSetInterval = setInterval(getWordandXpos, intervalTime);
+
+  return { getWordandXpos, placeWordinXpos, wordMoveDown, newWordSetInterval };
 }

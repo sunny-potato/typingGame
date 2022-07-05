@@ -1,3 +1,5 @@
+// import { gameOver } from "./startEndGame.js";
+
 let sumPoints;
 const points = document.querySelector(".points");
 export function calcuPoints() {
@@ -12,17 +14,12 @@ export function calcuPoints() {
 let currentGauge;
 const gauge = document.querySelector(".gauge");
 export function calcuGauge() {
-  emptyGauge(currentGauge);
+  // emptyGauge(currentGauge);
   if (currentGauge === undefined) {
-    currentGauge = 100;
+    currentGauge = 10;
   } else {
     currentGauge -= 2;
   }
   gauge.innerHTML = `${currentGauge}`;
-}
-
-export function emptyGauge(currentGauge) {
-  if (currentGauge === 0) {
-    return alert("Done");
-  }
+  return currentGauge;
 }
