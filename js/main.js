@@ -1,42 +1,52 @@
-import { gameOver } from "./startEndGame.js";
 import { calcuPoints, calcuGauge } from "./pointsGauge.js";
 import { playGame } from "./playGame.js";
 import { inputWord } from "./textInput.js";
 
-// setting startcondition
-const displayPoins = calcuPoints();
-const displayGauge = calcuGauge();
+calcuPoints(0);
+calcuGauge(10);
 
-// start game
+// Start game
 const startButton = document.querySelector(".startButton");
-const noticeGame = document.querySelector(".noticeGame");
-const gameState = startGame();
+const noticeStartGame = document.querySelector(".noticeStartGame");
+
+startGame();
 function startGame() {
   startButton.addEventListener("click", () => {
-    noticeGame.style.visibility = "hidden";
-    playGame(() => {
-      console.log("Game is over!");
-      gameOver();
+    noticeStartGame.style.visibility = "hidden";
+    console.log("game start");
+    const inputText = document.querySelector(".inputText");
+    inputText.value = "";
+    inputText.focus();
+    playGame((finalPoints) => {
+      console.log("game over");
+      gameOver(finalPoints);
     });
   });
 }
-
 inputWord();
 
-// console.log(playGame().wordMoveDown());
-
-// game over
-console.log(displayGauge);
-if (displayGauge <= 0) {
-  clearInterval(gameState);
-  clearTimeout(gameState);
-  gameOver();
-}
-// console.log(displayGauge, emptyGauge(displayGauge));
-function emptyGauge(displayGauge) {
-  if (displayGauge <= 0) {
-    clearInterval(gameState);
-    clearTimeout(gameState);
-    gameOver();
+// End game
+const noticeEndGame = document.querySelector(".noticeEndGame");
+function gameOver(finalPoints) {
+  const allWordContiner = document.querySelector(".wordsContainer");
+  while (allWordContiner.firstChild) {
+    allWordContiner.removeChild(allWordContiner.firstChild);
   }
+
+  noticeEndGame.style.display = "block";
+  const finalScore = document.querySelector(".finalScore");
+  finalScore.textContent = `${finalPoints}`;
+  // visibility="visible" vs dispaly="none"
+  // -> hold place           -> hold ikke place when it works.
+}
+
+goToStart();
+function goToStart() {
+  const goToStartButton = document.querySelector(".goToStartButton");
+  goToStartButton.addEventListener("click", () => {
+    noticeEndGame.style.display = "none";
+    noticeStartGame.style.visibility = "visible";
+    calcuPoints(0);
+    calcuGauge(10);
+  });
 }

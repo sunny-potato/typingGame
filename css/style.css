@@ -17,8 +17,7 @@ body {
 .playContainer {
   width: 100%;
   height: 70%;
-  /* border: 3px solid lightcoral; */
-  /* background: lightcoral; */
+
   box-sizing: border-box;
   margin-bottom: 1%;
 }
@@ -26,28 +25,19 @@ body {
   height: 100%;
 }
 .wordsContainer > div {
-  /* border: 3px solid black; */
-  /* background-color: red; */
-  /* border-top-right-radius: 40rem;
-  border-bottom-right-radius: 40rem; */
-  /* padding: 5px; */
   margin-bottom: 50px;
-  /* width: fit-content; */
 }
 .wordsContainer span {
-  /* background: red; */
   width: 100%;
-  background-color: #1e3d59;
-  /* margin: 0% 1%;
-  padding: 1%;
-  border-radius: 40rem;
-  border-radius: 40rem; */
+  color: #1e3d59;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #ffc13b, 2px 2px 1px #ffc13b, 3px 3px 1px #ffc13b,
+    4px 4px 1px #ffc13b;
 }
 
 .typingContainer {
   width: 100%;
   height: 30%;
-  /* border: 3px solid lightgreen; */
   box-sizing: border-box;
   display: flex;
 }
@@ -59,17 +49,16 @@ body {
   padding: 5% 1%;
   /* color: #1e3d59; */
 }
-/* .displayPoints > .points {
-  background-color: black;
-  width: 50%;
-  height: 50%;
-} */
+
 .displayInput {
   background-color: #ffc13b;
   border-radius: 40rem;
   border-radius: 40rem;
   flex: 1;
   padding: 5% 1%;
+}
+.displayInput input {
+  color: #1e3d59;
 }
 .displayGauge {
   background-color: #ff6e40;

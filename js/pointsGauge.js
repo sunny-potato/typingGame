@@ -1,25 +1,34 @@
-// import { gameOver } from "./startEndGame.js";
-
-let sumPoints;
-const points = document.querySelector(".points");
-export function calcuPoints() {
-  if (sumPoints === undefined) {
-    sumPoints = 0;
-  } else {
+export let sumPoints;
+export function calcuPoints(initialPoint) {
+  // let sumPoints;
+  console.log("points : ", sumPoints);
+  if (initialPoint === undefined) {
     sumPoints += 5;
+  } else {
+    sumPoints = initialPoint;
   }
-  points.innerHTML = `${sumPoints}`;
+  displayPoints(sumPoints);
+  return sumPoints;
+}
+
+function displayPoints(sumPoints) {
+  const points = document.querySelector(".points");
+  return (points.innerHTML = `${sumPoints}`);
 }
 
 let currentGauge;
-const gauge = document.querySelector(".gauge");
-export function calcuGauge() {
-  // emptyGauge(currentGauge);
-  if (currentGauge === undefined) {
-    currentGauge = 10;
-  } else {
+export function calcuGauge(initialGauge) {
+  console.log("gauge : ", currentGauge);
+  if (initialGauge === undefined) {
     currentGauge -= 2;
+  } else {
+    currentGauge = initialGauge;
   }
-  gauge.innerHTML = `${currentGauge}`;
+  displayGauge(currentGauge);
   return currentGauge;
+}
+
+export function displayGauge(currentGauge) {
+  const gauge = document.querySelector(".gauge");
+  gauge.innerHTML = `${currentGauge}`;
 }

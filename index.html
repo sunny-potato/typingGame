@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing game</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/button.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
   </head>
   <body>
     <div class="gameContainer">
       <div class="playContainer">
-        <div class="noticeGame">
-          <button class="startButton">Start</button>
+        <div class="popupNotice">
+          <div class="noticeStartGame">
+            Play Game
+            <button class="startButton">Start</button>
+          </div>
+          <div class="noticeEndGame">
+            Your final score :
+            <div class="finalScore"></div>
+            <button class="goToStartButton">Go to start</button>
+          </div>
+          <div class="wordsContainer"></div>
         </div>
-        <div class="wordsContainer"></div>
       </div>
 
       <div class="typingContainer">
@@ -33,7 +41,5 @@
       </div>
     </div>
   </body>
-  <!-- <script src="./js/listOfWords.js" type="module"></script> -->
   <script src="./js/main.js" type="module"></script>
-  <!-- <script src="./js/textInput.js" type="module"></script> -->
 </html>

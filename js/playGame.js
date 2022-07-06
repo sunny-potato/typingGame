@@ -1,6 +1,5 @@
 import { wordsList } from "./listOfWords.js";
-import { calcuGauge } from "./pointsGauge.js";
-import { gameOver } from "./startEndGame.js";
+import { calcuGauge, sumPoints } from "./pointsGauge.js";
 
 const playContainer = document.querySelector(".playContainer");
 const allWordContiner = document.querySelector(".wordsContainer");
@@ -30,7 +29,6 @@ export function playGame(onGameEnd) {
     wordSpan.textContent = `${wordsList[randomIndex]}`;
 
     const wordFrame = document.createElement("div");
-    // wordFrame.textContent = `${wordsList[randomIndex]}`;
     wordFrame.style.width = `${wordXposition}px`;
     wordFrame.style.textAlign = `${randomtextAlign}`;
     wordFrame.style.position = "absolute";
@@ -39,30 +37,30 @@ export function playGame(onGameEnd) {
 
     allWordContiner.appendChild(wordFrame);
     const initialYpos = 0;
-    const EachWordSetTimeout = setTimeout(() => {
-      wordMoveDown(wordFrame, initialYpos);
+    const fisrtSetTimeout = setTimeout(() => {
+      wordMoveDown(wordFrame, initialYpos, fisrtSetTimeout);
     }, delayTime);
-    return EachWordSetTimeout;
   };
 
-  const wordMoveDown = (lastWordinContainer, wordYpostion) => {
+  const wordMoveDown = (lastWordinContainer, wordYpostion, fisrtSetTimeout) => {
     const currentWord = lastWordinContainer;
     const currentWordPos = currentWord.getBoundingClientRect();
-    // console.log(currentWord.className === "noticeGame");
+    wordYpostion += 5;
+    currentWord.style.top = `${wordYpostion}px`;
+    const secondSetTimeout = setTimeout(() => {
+      wordMoveDown(currentWord, wordYpostion);
+    }, delayTime);
     if (currentWordPos.bottom >= playArea.bottom) {
-      // console.log(currentWord.textContent);
-      // clearTimeout(currentWord);
-      allWordContiner.removeChild(currentWord);
       const gauge = calcuGauge();
+      allWordContiner.removeChild(currentWord);
       if (gauge <= 0) {
-        onGameEnd();
+        // console.log("2settimeout", secondSetTimeout); // Q to Simen!
+        const finalPoints = sumPoints;
+        onGameEnd(finalPoints);
+        clearInterval(newWordSetInterval);
+        clearTimeout(fisrtSetTimeout);
+        clearTimeout(secondSetTimeout);
       }
-    } else {
-      wordYpostion += 5;
-      currentWord.style.top = `${wordYpostion}px`;
-      setTimeout(() => {
-        wordMoveDown(currentWord, wordYpostion);
-      }, delayTime);
     }
   };
 
