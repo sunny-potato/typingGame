@@ -11,32 +11,39 @@
   <body>
     <div class="gameContainer">
       <div class="playContainer">
+        <!-- <div class="texttest">SUNHEE</div> -->
         <div class="popupNotice">
           <div class="noticeStartGame">
-            Play Game
+            Play Game?
             <button class="startButton">Start</button>
           </div>
           <div class="noticeEndGame">
-            Your final score :
-            <div class="finalScore"></div>
-            <button class="goToStartButton">Go to start</button>
+            <button class="closeButton">X</button>
+            <p>Game Over</p>
+            <p>Your final score :<div class="finalScore"></div></p>
           </div>
-          <div class="wordsContainer"></div>
         </div>
+        <div class="wordsContainer"></div>
       </div>
 
       <div class="typingContainer">
         <div class="displayPoints">
-          Points :
-          <div class="points"></div>
+          <div class="pointsContainer">
+            Points
+            <div class="points"></div>
+          </div>
         </div>
         <div class="displayInput">
-          <label for="inputText">Enter word</label>
-          <input type="text" class="inputText" name="inputText" />
+          <div class="inputContainer">
+            <label for="inputText">Enter word</label><br />
+            <input type="text" class="inputText" name="inputText" />
+          </div>
         </div>
         <div class="displayGauge">
-          Gauge :
-          <div class="gauge"></div>
+          <div class="gaugeContainer">
+            Gauge
+            <div class="gauge"></div>
+          </div>
         </div>
       </div>
     </div>

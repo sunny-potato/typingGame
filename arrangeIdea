@@ -21,7 +21,7 @@
   - the written word is checked if the word exsists \*\*\*
     - if the word written by the player is correct, the word is disapeared from the screen \*\*\*
       then player gets points of it & the inputfield will be empty \*\*\*
-    - if the word is not correct, the word remains
+    - if the word is not correct, the word remains \*\*\*
 - When words meet the bounday line of playing the game \*\*\*
   - the gauge will be lost as much as the number of words the player misses out \*\*\*
 
@@ -30,11 +30,6 @@
 - When the gauge will be empty, \*\*\*
   message including total points pop up \*\*\*
 
-* if all features above are maganged,
+* if all features above are managed,
   - different levels depending on time or length of words/sentence
   - display rank of points
-
-#1e3d59 navy
-#f5f0e1 beige
-#ff6e40 orange
-#ffc13b yellow

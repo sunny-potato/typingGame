@@ -9,7 +9,7 @@ export function playGame(onGameEnd) {
   const getWordandXpos = () => {
     const randomIndex = Math.floor(Math.random() * 1943);
 
-    const minLengthWord = wordsList[randomIndex].length * 24; // 18pt = 24px
+    const minLengthWord = wordsList[randomIndex].length * 30; // 22pt = 29.333px
     const wordXposition =
       Math.random() * (playArea.width - minLengthWord) + minLengthWord;
 
@@ -54,7 +54,7 @@ export function playGame(onGameEnd) {
       const gauge = calcuGauge();
       allWordContiner.removeChild(currentWord);
       if (gauge <= 0) {
-        // console.log("2settimeout", secondSetTimeout); // Q to Simen!
+        // console.log("2settimeout", secondSetTimeout); // Q to S!
         const finalPoints = sumPoints;
         onGameEnd(finalPoints);
         clearInterval(newWordSetInterval);

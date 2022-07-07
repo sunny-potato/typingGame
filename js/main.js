@@ -33,8 +33,9 @@ function gameOver(finalPoints) {
     allWordContiner.removeChild(allWordContiner.firstChild);
   }
 
-  noticeEndGame.style.display = "block";
+  noticeEndGame.style.visibility = "visible";
   const finalScore = document.querySelector(".finalScore");
+  console.log(finalScore.textContent);
   finalScore.textContent = `${finalPoints}`;
   // visibility="visible" vs dispaly="none"
   // -> hold place           -> hold ikke place when it works.
@@ -42,9 +43,9 @@ function gameOver(finalPoints) {
 
 goToStart();
 function goToStart() {
-  const goToStartButton = document.querySelector(".goToStartButton");
-  goToStartButton.addEventListener("click", () => {
-    noticeEndGame.style.display = "none";
+  const closeButton = document.querySelector(".closeButton");
+  closeButton.addEventListener("click", () => {
+    noticeEndGame.style.visibility = "hidden";
     noticeStartGame.style.visibility = "visible";
     calcuPoints(0);
     calcuGauge(10);
