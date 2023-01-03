@@ -1,4 +1,6 @@
 ﻿# Typing game
+ 
+ It is typing game that helps to improve your typing skills. 
 
 ## Table of Contents
 
