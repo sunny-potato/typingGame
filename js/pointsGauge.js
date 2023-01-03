@@ -1,6 +1,5 @@
 export let sumPoints;
 export function calcuPoints(initialPoint) {
-  // console.log("points : ", sumPoints);
   if (initialPoint === undefined) {
     sumPoints += 5;
   } else {
@@ -17,7 +16,6 @@ function displayPoints(sumPoints) {
 
 let currentGauge;
 export function calcuGauge(initialGauge) {
-  // console.log("gauge : ", currentGauge);
   if (initialGauge === undefined) {
     currentGauge -= 2;
   } else {

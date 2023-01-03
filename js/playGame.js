@@ -1,9 +1,12 @@
 import { wordsList } from "./listOfWords.js";
 import { calcuGauge, sumPoints } from "./pointsGauge.js";
+import { getDelayTime } from "./calcuTime.js";
 
 const playContainer = document.querySelector(".playContainer");
 const allWordContiner = document.querySelector(".wordsContainer");
 const playArea = playContainer.getBoundingClientRect();
+
+const setTimeoutArray = [];
 
 export function playGame(onGameEnd) {
   const getWordandXpos = () => {
@@ -16,13 +19,11 @@ export function playGame(onGameEnd) {
     const textAlign = ["left", "right", "center"];
     const textAlignIndex = Math.floor(Math.random() * 3);
     const randomtextAlign = textAlign[textAlignIndex];
+    const firstSetTimeout = setTimeout(getWordandXpos, getDelayTime()[0]);
+    setTimeoutArray.push(firstSetTimeout);
 
     placeWordinXpos(randomIndex, wordXposition, randomtextAlign);
   };
-
-  let speedLevel = [2000, 1500, 1000, 500];
-  let intervalTime = 1000;
-  let delayTime = intervalTime / 20;
 
   const placeWordinXpos = (randomIndex, wordXposition, randomtextAlign) => {
     const wordSpan = document.createElement("span");
@@ -37,34 +38,39 @@ export function playGame(onGameEnd) {
 
     allWordContiner.appendChild(wordFrame);
     const initialYpos = 0;
-    const fisrtSetTimeout = setTimeout(() => {
-      wordMoveDown(wordFrame, initialYpos, fisrtSetTimeout);
-    }, delayTime);
+
+    const secondSetTimeout = setTimeout(() => {
+      wordMoveDown(wordFrame, initialYpos);
+    }, getDelayTime()[1]);
   };
 
-  const wordMoveDown = (lastWordinContainer, wordYpostion, fisrtSetTimeout) => {
+  const wordMoveDown = (lastWordinContainer, wordYpostion) => {
     const currentWord = lastWordinContainer;
     const currentWordPos = currentWord.getBoundingClientRect();
     wordYpostion += 5;
     currentWord.style.top = `${wordYpostion}px`;
-    const secondSetTimeout = setTimeout(() => {
+    const thirdSetTimeout = setTimeout(() => {
       wordMoveDown(currentWord, wordYpostion);
-    }, delayTime);
+    }, getDelayTime()[1]);
+
     if (currentWordPos.bottom >= playArea.bottom) {
       const gauge = calcuGauge();
       allWordContiner.removeChild(currentWord);
       if (gauge <= 0) {
-        // console.log("2settimeout", secondSetTimeout); // Q to S!
         const finalPoints = sumPoints;
         onGameEnd(finalPoints);
-        clearInterval(newWordSetInterval);
-        clearTimeout(fisrtSetTimeout);
-        clearTimeout(secondSetTimeout);
+        clearsetTimeOut();
       }
     }
   };
+  const test = setTimeout(() => {
+    getWordandXpos();
+  }, 2300);
+  return { getWordandXpos, placeWordinXpos, wordMoveDown, test };
+}
 
-  const newWordSetInterval = setInterval(getWordandXpos, intervalTime);
-
-  return { getWordandXpos, placeWordinXpos, wordMoveDown, newWordSetInterval };
+function clearsetTimeOut() {
+  for (const each of setTimeoutArray) {
+    clearTimeout(each);
+  }
 }

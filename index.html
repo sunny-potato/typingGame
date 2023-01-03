@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,10 +9,10 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/popup.css" />
   </head>
+
   <body>
     <div class="gameContainer">
       <div class="playContainer">
-        <!-- <div class="texttest">SUNHEE</div> -->
         <div class="popupNotice">
           <div class="noticeStartGame">
             Play Game?
@@ -20,26 +21,31 @@
           <div class="noticeEndGame">
             <button class="closeButton">X</button>
             <p>Game Over</p>
-            <p>Your final score :<div class="finalScore"></div></p>
+            <p>Your final score :
+            <div class="finalScore"></div>
+            </p>
           </div>
         </div>
         <div class="wordsContainer"></div>
       </div>
 
       <div class="typingContainer">
-        <div class="displayPoints">
+        <div class="displayPoints shadow">
           <div class="pointsContainer">
             Points
             <div class="points"></div>
           </div>
         </div>
-        <div class="displayInput">
+        <div class="displayInput shadow">
           <div class="inputContainer">
             <label for="inputText">Enter word</label><br />
             <input type="text" class="inputText" name="inputText" />
+            <div class="displayTime">Time :
+              <span class="time"></span>
+            </div>
           </div>
         </div>
-        <div class="displayGauge">
+        <div class="displayGauge shadow">
           <div class="gaugeContainer">
             Gauge
             <div class="gauge"></div>
@@ -49,4 +55,5 @@
     </div>
   </body>
   <script src="./js/main.js" type="module"></script>
+
 </html>

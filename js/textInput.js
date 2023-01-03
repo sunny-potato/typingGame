@@ -1,11 +1,10 @@
-// import { playGame } from "./playGame.js";
 import { calcuPoints } from "./pointsGauge.js";
 
 const wordsContainer = document.querySelector(".wordsContainer");
 const inputText = document.querySelector(".inputText");
 
 export function inputWord() {
-  inputText.addEventListener("input", (event) => {
+  inputText.addEventListener("input", () => {
     for (const element of wordsContainer.children) {
       if (
         inputText.value.trim().toLowerCase() ===
